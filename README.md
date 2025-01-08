@@ -5,6 +5,13 @@ Connecting volunteers with meaningful opportunities to make a difference.
 **Live Site URL:** [Volunteer Hub](https://assignment-11-ariyan.netlify.app/)  
 **Server Repository:** [Volunteer Hub Server](https://github.com/ariyan-321/volunteer-hub-server)
 
+
+## 📷 Screenshots  
+
+### Home Page  
+![Home Page](https://i.ibb.co.com/mJw1f1Y/Screenshot-2025-01-04-150326.png) 
+
+
 ---
 
 ## 📖 About Volunteer Hub  
@@ -91,10 +98,6 @@ Stay Engaged:
 Receive notifications and stay updated on upcoming events and opportunities.
 
 
-## 📷 Screenshots  
-
-### Home Page  
-![Home Page](https://i.ibb.co.com/mJw1f1Y/Screenshot-2025-01-04-150326.png) 
 
 
 Event Details
