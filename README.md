@@ -91,6 +91,11 @@ Stay Engaged:
 Receive notifications and stay updated on upcoming events and opportunities.
 
 
+## 📷 Screenshots  
+
+### Home Page  
+![Home Page](https://i.ibb.co.com/mJw1f1Y/Screenshot-2025-01-04-150326.png) 
+
 
 Event Details
 
