@@ -56,7 +56,7 @@ Volunteer Hub is a platform designed to:
 
 📝 How to Run Locally
 Clone the Repository
-git clone https://github.com/ariyan/volunteer-hub-client.git
+git clone https://github.com/ariyan-321/volunteer-client.git
 cd volunteer-hub-client
 
 
