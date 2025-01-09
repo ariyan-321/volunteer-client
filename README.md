@@ -33,6 +33,8 @@ Volunteer Hub is a platform designed to:
 - **Responsive Design:** Optimized for all devices, ensuring a smooth experience.  
 - **Secure Authentication:** Firebase integration for reliable login and signup.  
 
+
+
 ---
 
 ## 🛠️ Technologies Used  
