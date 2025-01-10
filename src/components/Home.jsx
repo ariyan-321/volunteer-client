@@ -4,6 +4,7 @@ import Partners from "./subComponents/Partners";
 import Reviews from "./Reviews";
 import VolunteerNeedsNow from "./subComponents/VolunteerNeedsNow";
 import FaqPage from "./FaqPage";
+import NewsLetter from "./subComponents/NewsLetter";
 
 export default function Home() {
   useEffect(() => {
@@ -33,6 +34,11 @@ export default function Home() {
       <div className="my-12 container mx-auto">
         <FaqPage></FaqPage>
       </div>
+
+      <div className="my-12 container mx-auto">
+        <NewsLetter></NewsLetter>
+      </div>
+
     </div>
   );
 }
