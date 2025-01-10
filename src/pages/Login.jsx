@@ -80,17 +80,17 @@ export default function Login() {
           </div>
           <button
             type="submit"
-            className="w-full py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition duration-200 shadow-md"
+            className="w-full mx-auto py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition duration-200 shadow-md"
           >
             Login
           </button>
         </form>
         <div className="mt-6 flex items-center justify-center">
-          <button onClick={handleGoogleLogin} className="flex items-center gap-2 px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition duration-200">
+          <button onClick={handleGoogleLogin} className=" w-full  flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition duration-200">
             <img
-              src="https://image.similarpng.com/very-thumbnail/2021/09/Logo-Search-Google--on-transparent-background-PNG.png"
+              src="https://banner2.cleanpng.com/20240216/ryj/transparent-google-logo-google-logo-with-colorful-letters-on-black-1710875605151.webp"
               alt="Google"
-              className="w-7 h-7"
+              className="w-7 h-7 rounded-full"
             />
             <span className="text-gray-700 font-medium">Login with Google</span>
           </button>
