@@ -43,9 +43,10 @@ export default function Navbar() {
   };
 
   return (
-    <div className="navbar bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white shadow-md container px-4 mx-auto">
+    <div className='bg-gradient-to-r sticky top-0 z-50 from-green-500 via-green-600 to-green-700 text-white'>
+      <div className="navbar   shadow-md container px-4 mx-auto">
       {/* Left section: Logo and Hamburger Menu */}
-      <div className="navbar-start flex items-center gap-3">
+      <div className="navbar-start flex items-center gap-3 ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost text-white">
             <svg
@@ -185,6 +186,7 @@ export default function Navbar() {
           </svg>
         </label>
       </div>
+    </div>
     </div>
   );
 }
