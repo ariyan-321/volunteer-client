@@ -3,6 +3,7 @@ import Banner from "./subComponents/Banner";
 import Partners from "./subComponents/Partners";
 import Reviews from "./Reviews";
 import VolunteerNeedsNow from "./subComponents/VolunteerNeedsNow";
+import FaqPage from "./FaqPage";
 
 export default function Home() {
   useEffect(() => {
@@ -27,6 +28,10 @@ export default function Home() {
 
       <div className="my-12">
         <Reviews></Reviews>
+      </div>
+
+      <div className="my-12 container mx-auto">
+        <FaqPage></FaqPage>
       </div>
     </div>
   );
