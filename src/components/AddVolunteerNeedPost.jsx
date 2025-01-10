@@ -68,8 +68,8 @@ export default function AddVolunteerNeedPost() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-8 bg-gradient-to-r from-blue-50 to-white shadow-2xl rounded-lg mt-7">
-      <h2 className="text-4xl font-bold mb-8 text-center text-blue-700">Add Volunteer Need Post</h2>
+    <div className="max-w-4xl mx-auto p-8 bg-gradient-to-r from-green-200 to-white shadow-2xl rounded-lg mt-7">
+      <h2 className="text-4xl font-bold mb-8 text-center text-green-600">Add Volunteer Need Post</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Thumbnail */}
         <div className="form-control">
@@ -195,7 +195,7 @@ export default function AddVolunteerNeedPost() {
 
         {/* Add Post Button */}
         <div className="form-control mt-6">
-          <button type="submit" className="btn btn-primary w-full text-lg font-bold">
+          <button type="submit" className="btn btn-success w-full text-lg font-bold">
             Add Post
           </button>
         </div>
