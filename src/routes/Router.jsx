@@ -13,6 +13,8 @@ import ErrorPage from "../components/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import VoluntteerNeedPostDetails from "../components/VoluntteerNeedPostDetails";
 import UpdateVolunteerNeedPosts from "../components/UpdateVolunteerNeedPosts";
+import AboutUs from "../components/AboutUs";
+import ContactUs from "../components/ContactUs";
 
 const router=createBrowserRouter([
     {
@@ -28,7 +30,15 @@ const router=createBrowserRouter([
                 path:"/all-volunteer-need",
                 element:<AllVolunteerNeed></AllVolunteerNeed>
             },
-            
+            {
+                path:"/AboutUs",
+                element:<AboutUs></AboutUs>
+            },
+            {
+                path:"/contactUs",
+                element:<ContactUs></ContactUs>
+            },
+            ,
             {
                 path:"/add-volunteer-need-post",
                 element:<PrivateRoute><AddVolunteerNeedPost></AddVolunteerNeedPost></PrivateRoute>
