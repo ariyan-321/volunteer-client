@@ -43,7 +43,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="bg-gradient-to-r sticky top-0 z-50 from-green-500 via-green-600 to-green-700 text-white">
+    <div className="bg-gradient-to-r sticky top-0 z-50 from-green-500 via-green-600 to-green-700 text-white  xl:px-5">
       <div className="navbar bg-gradient-to-r  from-green-500 via-green-600 to-green-700  text-white  container px-4 mx-auto">
         {/* Left section: Logo and Hamburger Menu */}
         <div className="navbar-start flex items-center gap-3 ">
@@ -129,7 +129,7 @@ export default function Navbar() {
             <li>
               <Link to="/aboutUs">About Us</Link>
             </li>
-            <li>
+            <li className="lg:hidden xl:flex">
               <Link to="/contactUs">Contact Us</Link>
             </li>
             {user && (
