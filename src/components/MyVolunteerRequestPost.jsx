@@ -81,14 +81,14 @@ export default function MyVolunteerRequestPost() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-center font-bold text-4xl my-8 text-primary">
+      <h1 className="text-center font-bold text-4xl my-8 text-green-600">
         My Volunteer Request Posts
       </h1>
 
       {requests.length > 0 ? (
         <div className="overflow-x-auto">
           <table className="table w-full border border-gray-200 rounded-lg shadow-md">
-            <thead className="bg-primary text-white">
+            <thead className="bg-green-600 text-white">
               <tr>
                 <th className="px-6 py-3">#</th>
                 <th className="px-6 py-3">Title</th>

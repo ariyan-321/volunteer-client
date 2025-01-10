@@ -90,14 +90,14 @@ export default function MyVolunteerNeedPosts() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-center font-bold text-4xl my-8 text-primary">
+      <h1 className="text-center font-bold text-4xl my-8 text-green-600">
         My Volunteer Need Posts
       </h1>
 
       {volunteers.length > 0 ? (
         <div className="overflow-x-auto">
           <table className="table w-full border border-gray-200 rounded-lg shadow-md">
-            <thead className="bg-primary text-white">
+            <thead className="bg-green-600 text-white">
               <tr>
                 <th className="px-6 py-3">#</th>
                 <th className="px-6 py-3">Title</th>
@@ -116,7 +116,7 @@ export default function MyVolunteerNeedPosts() {
                   <td className="px-6 py-4 flex justify-center gap-4">
                     <Link to={`/update-volunteer-need-post/${volunteer._id}`}
                       
-                      className="btn btn-sm btn-primary text-white flex items-center gap-2"
+                      className="btn btn-sm btn-success text-white flex items-center gap-2"
                     >
                       <FaEdit /> Update
                     </Link>
