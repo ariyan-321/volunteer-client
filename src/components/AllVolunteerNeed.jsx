@@ -9,6 +9,7 @@ export default function AllVolunteerNeed() {
   const [searchTerm, setSearchTerm] = useState("");
   const [noData, setNoData] = useState(false);
   const [viewMode, setViewMode] = useState("grid"); // State to toggle between grid and table view
+  const [sortOrder, setSortOrder] = useState("ascending"); // State to track sorting order
 
   useEffect(() => {
     document.title = "All Volunteer Needs";
@@ -25,7 +26,8 @@ export default function AllVolunteerNeed() {
           } else {
             setNoData(false);
           }
-          setVolunteers(res.data);
+          const sortedData = sortVolunteers(res.data, sortOrder); // Apply sorting
+          setVolunteers(sortedData);
           setLoading(false);
         })
         .catch((err) => {
@@ -37,10 +39,19 @@ export default function AllVolunteerNeed() {
     if (searchTerm !== "" || searchTerm === "") {
       fetchVolunteers();
     }
-  }, [searchTerm]);
+  }, [searchTerm, sortOrder]); // Fetch data when search term or sort order changes
+
+  // Function to sort volunteers
+  const sortVolunteers = (data, order) => {
+    return data.sort((a, b) => {
+      const dateA = new Date(a.postDeadline);
+      const dateB = new Date(b.postDeadline);
+      return order === "ascending" ? dateA - dateB : dateB - dateA;
+    });
+  };
 
   return (
-    <div className="py-10 px-5 lg:px-20">
+    <div className="py-10 container mx-auto px-5 lg:px-20">
       <h1 className="text-5xl font-bold text-center mb-10">All Volunteer Needs</h1>
 
       {/* Search Bar */}
@@ -52,22 +63,34 @@ export default function AllVolunteerNeed() {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button className="btn btn-primary w-full sm:w-auto font-semibold" onClick={() => setSearchTerm(searchTerm)}>
+        <button className="btn btn-success w-full sm:w-auto font-semibold" onClick={() => setSearchTerm(searchTerm)}>
           Search
         </button>
+      </div>
+
+      {/* Sort Dropdown */}
+      <div className="flex justify-center gap-4 mb-6">
+        <select
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+          className="select select-bordered font-semibold"
+        >
+          <option value="ascending">Sort by Date: Ascending</option>
+          <option value="descending">Sort by Date: Descending</option>
+        </select>
       </div>
 
       {/* Toggle View Buttons */}
       <div className="flex justify-center gap-4 mb-6">
         <button
-          className={`btn ${viewMode === "grid" ? "btn-primary" : "btn-outline"} flex items-center space-x-2`}
+          className={`btn ${viewMode === "grid" ? "btn-success" : "btn-outline"} flex items-center space-x-2`}
           onClick={() => setViewMode("grid")}
         >
           <BsGrid size={20} />
           <span>Grid</span>
         </button>
         <button
-          className={`btn ${viewMode === "table" ? "btn-primary" : "btn-outline"} flex items-center space-x-2`}
+          className={`btn ${viewMode === "table" ? "btn-success" : "btn-outline"} flex items-center space-x-2`}
           onClick={() => setViewMode("table")}
         >
           <BsTable size={20} />
@@ -93,7 +116,7 @@ export default function AllVolunteerNeed() {
                   {volunteers.map((volunteer) => (
                     <div
                       key={volunteer._id}
-                      className="card bg-white shadow-md border border-gray-200 rounded-lg p-4 hover:shadow-xl transform hover:scale-105 transition duration-300"
+                      className="card shadow-md border-2 border-white rounded-lg p-4 hover:shadow-xl transform hover:scale-105 transition duration-300"
                     >
                       <img
                         src={volunteer.thumbnail}
@@ -126,8 +149,8 @@ export default function AllVolunteerNeed() {
                 </div>
               ) : (
                 <div className="overflow-x-auto">
-                  <table className="table w-full border border-gray-200 rounded-lg shadow-md">
-                    <thead className="bg-gray-100">
+                  <table className="table w-full rounded-lg shadow-md">
+                    <thead className="">
                       <tr>
                         <th className="py-2 px-4 text-left">Thumbnail</th>
                         <th className="py-2 px-4 text-left">Title</th>
@@ -140,7 +163,7 @@ export default function AllVolunteerNeed() {
                     </thead>
                     <tbody>
                       {volunteers.map((volunteer) => (
-                        <tr key={volunteer._id} className="hover:bg-gray-50">
+                        <tr key={volunteer._id} className="">
                           <td className="py-2 px-4">
                             <img
                               src={volunteer.thumbnail}
