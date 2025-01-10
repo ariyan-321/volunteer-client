@@ -21,7 +21,7 @@ export default function VolunteerNeedsNow() {
 
   return (
     <div className="container mx-auto px-4 py-8 relative">
-      <h2 className="text-3xl font-semibold text-center mb-8 text-primary">Volunteer Needs Now</h2>
+      <h2 className="text-3xl font-semibold text-center mb-8 text-green-600">Volunteer Needs Now</h2>
 
       {/* Show loader when loading is true */}
       {loading ? (
@@ -35,7 +35,7 @@ export default function VolunteerNeedsNow() {
             volunteerNeeds.map((volunteerNeed, index) => (
               <div
                 key={index}
-                className="card w-full max-w-xs shadow-lg border border-gray-200 rounded-lg overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl bg-white"
+                className="card w-full max-w-xs shadow-lg border-white border-2 rounded-lg  overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl "
               >
                 <figure>
                   <img
@@ -45,20 +45,20 @@ export default function VolunteerNeedsNow() {
                   />
                 </figure>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">{volunteerNeed.title}</h3>
-                  <p className="text-sm text-gray-600 mb-1">
+                  <h3 className="text-2xl font-bold mb-2">{volunteerNeed.title}</h3>
+                  <p className="text-sm mb-1">
                     <strong>Category:</strong> {volunteerNeed.category}
                   </p>
-                  <p className="text-sm text-gray-600 mb-1">
+                  <p className="text-sm  mb-1">
                     <strong>Location:</strong> {volunteerNeed.location}
                   </p>
-                  <p className="text-sm text-gray-600 mb-1">
+                  <p className="text-sm mb-1">
                     <strong>Deadline:</strong> {new Date(volunteerNeed.postDeadline).toLocaleDateString()}
                   </p>
                   <div className="mt-4 flex justify-end">
                     <Link
                       to={`/details/${volunteerNeed._id}`}
-                      className="inline-block bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-focus"
+                      className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-primary-focus"
                     >
                       View Details
                     </Link>

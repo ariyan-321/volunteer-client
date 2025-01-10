@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-   <div className='mt-[60vh] container mx-auto'>
-     <footer className="bg-gradient-to-br from-green-600 to-green-800 text-white py-12">
+   <div className='mt-[60vh] bg-gradient-to-br from-green-600 to-green-800 text-white  '>
+     <footer className=" py-12 container mx-auto px-4">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Logo and Mission */}
         <aside className="space-y-4">
