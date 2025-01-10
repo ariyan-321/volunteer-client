@@ -12,7 +12,7 @@ export default function Partners() {
 
   return (
     <div>
-      <h1 className="font-semibold text-3xl text-center my-5">Our Partners</h1>
+      <h1 className="font-semibold text-3xl text-center text-green-600 my-5">Our Partners</h1>
       <div className=" p-5 w-[80%] mx-auto rounded-md">
         <Marquee speed={50} pauseOnHover={true} gradient={false}>
           {brands.map((brand, index) => (
