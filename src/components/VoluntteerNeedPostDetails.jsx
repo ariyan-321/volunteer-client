@@ -10,11 +10,11 @@ export default function VolunteerNeedPostDetails() {
   const { user } = useContext(authContext); // Access logged-in user data
   const volunteerData = useLoaderData(); // Fetch volunteer data from the database
 
-  const axiosSecure=useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
 
-  useEffect(()=>{
-    document.title="VolunteerNeedPostDetails"
-  })
+  useEffect(() => {
+    document.title = "VolunteerNeedPostDetails";
+  });
 
   const [volunteer, setVolunteer] = useState(volunteerData);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,25 +24,22 @@ export default function VolunteerNeedPostDetails() {
   // Effect hook to re-fetch data if the volunteer details are updated
   useEffect(() => {
     if (volunteerUpdated) {
-      axios.get(`https://assignment-11-new.vercel.app/volunteer/${volunteer?._id}`)
-        .then(res => {
+      axios
+        .get(`https://assignment-11-new.vercel.app/volunteer/${volunteer?._id}`)
+        .then((res) => {
           setVolunteer(res.data); // Update volunteer data after successful request
           setVolunteerUpdated(false); // Reset the flag
         })
-        .catch(err => {
+        .catch((err) => {
           toast.error("Failed to load updated volunteer data");
         });
     }
   }, [volunteerUpdated, volunteer?._id]);
 
   const handleRequest = () => {
-
-
     if (!suggestion.trim()) {
       return toast.error("Suggestion field cannot be empty!");
     }
-
-   
 
     const requestData = {
       jobId: volunteer?._id,
@@ -60,9 +57,9 @@ export default function VolunteerNeedPostDetails() {
       status: "requested", // Default status
     };
 
-
-    axiosSecure.post("/add-requests", requestData)
-      .then(res => {
+    axiosSecure
+      .post("/add-requests", requestData)
+      .then((res) => {
         if (res.data.insertedId) {
           toast.success("Successfully sent request");
           setSuggestion("");
@@ -70,7 +67,7 @@ export default function VolunteerNeedPostDetails() {
           setVolunteerUpdated(true); // Set the flag to trigger re-fetch
         }
       })
-      .catch(err => {
+      .catch((err) => {
         toast.error(err.message);
       });
   };
@@ -97,9 +94,7 @@ export default function VolunteerNeedPostDetails() {
         </p>
       </div>
 
-      {/* Thumbnail and Details Section */}
       <div className="flex flex-col md:flex-row gap-12 mb-10">
-        {/* Left: Thumbnail */}
         <div className="flex-shrink-0 md:w-1/3">
           <img
             src={volunteer?.thumbnail || "https://via.placeholder.com/800x400"}
@@ -108,7 +103,6 @@ export default function VolunteerNeedPostDetails() {
           />
         </div>
 
-        {/* Right: Details */}
         <div className="md:w-2/3 space-y-6">
           <div className="text-lg font-semibold text-gray-900">
             <p>
@@ -132,39 +126,46 @@ export default function VolunteerNeedPostDetails() {
           </div>
           <div className="text-lg font-semibold text-gray-900">
             <p>
-              <strong>No. of Volunteers Needed:</strong> {volunteer?.noOfVolunteerNeed} <span className="text-red-500">{(volunteer?.noOfVolunteerNeed<=0 && "No More Volunteer Needed")}</span>
+              <strong>No. of Volunteers Needed:</strong>{" "}
+              {volunteer?.noOfVolunteerNeed}{" "}
+              <span className="text-red-500">
+                {volunteer?.noOfVolunteerNeed <= 0 &&
+                  "No More Volunteer Needed"}
+              </span>
             </p>
           </div>
           <div className="text-lg font-semibold text-gray-900">
             <p>
-              <strong>Deadline:</strong> {format(new Date(volunteer?.postDeadline), "P")}
+              <strong>Deadline:</strong>{" "}
+              {format(new Date(volunteer?.postDeadline), "P")}
             </p>
           </div>
           <div className="text-lg font-semibold text-gray-900">
             <p>
-              <strong>Organizer Name:</strong> {volunteer?.OraganizerName || "N/A"}
+              <strong>Organizer Name:</strong>{" "}
+              {volunteer?.OraganizerName || "N/A"}
             </p>
           </div>
           <div className="text-lg font-semibold text-gray-900">
             <p>
-              <strong>Organizer Email:</strong> {volunteer?.OrganizerEmail || "N/A"}
+              <strong>Organizer Email:</strong>{" "}
+              {volunteer?.OrganizerEmail || "N/A"}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Call-to-Action Section */}
       <div className="text-center">
         <button
           className="btn bg-blue-700 text-white px-8 py-3 text-lg font-bold rounded-full hover:bg-blue-800 focus:outline-none"
           onClick={() => {
-            if(volunteer?.noOfVolunteerNeed<=0){
-              return toast.error("No More Volunteer Needed")
+            if (volunteer?.noOfVolunteerNeed <= 0) {
+              return toast.error("No More Volunteer Needed");
             }
-            if(user?.email===volunteer?.OrganizerEmail){
+            if (user?.email === volunteer?.OrganizerEmail) {
               return toast.error("You Can't Be A Volunteer On Your Own Post");
             }
-            setIsModalOpen(true)
+            setIsModalOpen(true);
           }}
         >
           Be a Volunteer
@@ -242,7 +243,9 @@ export default function VolunteerNeedPostDetails() {
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text font-semibold">No. of Volunteers Needed</span>
+                  <span className="label-text font-semibold">
+                    No. of Volunteers Needed
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -264,7 +267,9 @@ export default function VolunteerNeedPostDetails() {
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text font-semibold">Organizer Name</span>
+                  <span className="label-text font-semibold">
+                    Organizer Name
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -275,7 +280,9 @@ export default function VolunteerNeedPostDetails() {
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text font-semibold">Organizer Email</span>
+                  <span className="label-text font-semibold">
+                    Organizer Email
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -286,7 +293,9 @@ export default function VolunteerNeedPostDetails() {
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text font-semibold">Volunteer Name</span>
+                  <span className="label-text font-semibold">
+                    Volunteer Name
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -297,7 +306,9 @@ export default function VolunteerNeedPostDetails() {
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text font-semibold">Volunteer Email</span>
+                  <span className="label-text font-semibold">
+                    Volunteer Email
+                  </span>
                 </label>
                 <input
                   type="email"
@@ -310,7 +321,9 @@ export default function VolunteerNeedPostDetails() {
               {/* Suggestion Field */}
               <div>
                 <label className="label">
-                  <span className="label-text font-semibold">Your Suggestion</span>
+                  <span className="label-text font-semibold">
+                    Your Suggestion
+                  </span>
                 </label>
                 <textarea
                   className="textarea textarea-bordered w-full"
