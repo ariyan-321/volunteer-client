@@ -54,7 +54,7 @@ export default function NewsLetter() {
             className="input input-bordered w-full px-4 py-2 text-black rounded"
             required
           />
-          <button type="submit" className="btn btn-primary px-6 py-2">
+          <button type="submit" className="btn btn-primary text-black px-6 py-2">
             Subscribe
           </button>
         </form>
