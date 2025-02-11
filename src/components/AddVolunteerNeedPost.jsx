@@ -1,23 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import 'tailwindcss/tailwind.css';
-import 'daisyui/dist/full.css';
-import { authContext } from '../provider/AuthProvider';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
-import useAxiosSecure from '../hooks/useAxiosSecure';
+import React, { useContext, useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "tailwindcss/tailwind.css";
+import "daisyui/dist/full.css";
+import { authContext } from "../provider/AuthProvider";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 export default function AddVolunteerNeedPost() {
   const [deadline, setDeadline] = useState(new Date());
 
   const { user } = useContext(authContext);
 
-  const axiosSecure=useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    document.title = 'Add Volunteer Need Post';
+    document.title = "Add Volunteer Need Post";
   });
 
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ export default function AddVolunteerNeedPost() {
 
     if (noOfVolunteerNeed <= 0) {
       toast.error("Number of Volunteers Needed must be greater than 0.");
-      return; 
+      return;
     }
 
     const postData = {
@@ -53,13 +53,13 @@ export default function AddVolunteerNeedPost() {
     };
 
     axiosSecure
-      .post('/add-volunteer', postData)
+      .post("/add-volunteer", postData)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
-          toast.success('Successfully added data');
+          toast.success("Successfully added data");
           form.reset();
-          navigate('/manage-my-posts');
+          navigate("/manage-my-posts");
         }
       })
       .catch((err) => {
@@ -69,7 +69,9 @@ export default function AddVolunteerNeedPost() {
 
   return (
     <div className="max-w-4xl mx-auto p-8 bg-gradient-to-r from-green-600 to-green-400 shadow-2xl rounded-lg mt-7">
-      <h2 className="text-4xl font-bold mb-8 text-center text-black">Add Volunteer Need Post</h2>
+      <h2 className="text-4xl font-bold mb-8 text-center text-black">
+        Add Volunteer Need Post
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Thumbnail */}
         <div className="form-control">
@@ -118,7 +120,11 @@ export default function AddVolunteerNeedPost() {
           <label className="label">
             <span className="label-text font-semibold">Category</span>
           </label>
-          <select name="category" className="select select-bordered w-full" required>
+          <select
+            name="category"
+            className="select select-bordered w-full"
+            required
+          >
             <option value="">Select a category</option>
             <option value="healthcare">Healthcare</option>
             <option value="education">Education</option>
@@ -144,7 +150,9 @@ export default function AddVolunteerNeedPost() {
         {/* Number of Volunteers Needed */}
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-semibold">No. of Volunteers Needed</span>
+            <span className="label-text font-semibold">
+              No. of Volunteers Needed
+            </span>
           </label>
           <input
             name="number"
@@ -195,7 +203,10 @@ export default function AddVolunteerNeedPost() {
 
         {/* Add Post Button */}
         <div className="form-control mt-6">
-          <button type="submit" className="btn btn-success w-full text-lg font-bold">
+          <button
+            type="submit"
+            className="btn btn-success w-full text-lg font-bold"
+          >
             Add Post
           </button>
         </div>

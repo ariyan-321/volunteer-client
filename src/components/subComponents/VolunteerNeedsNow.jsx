@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function VolunteerNeedsNow() {
   const [volunteerNeeds, setVolunteerNeeds] = useState([]);
@@ -8,7 +8,7 @@ export default function VolunteerNeedsNow() {
 
   useEffect(() => {
     axios
-      .get('https://assignment-11-new.vercel.app/volunteer-needs') // Fetch volunteer needs from the backend
+      .get("https://assignment-11-new.vercel.app/volunteer-needs") // Fetch volunteer needs from the backend
       .then((res) => {
         setVolunteerNeeds(res.data); // Set the data in the state
         setLoading(false); // Set loading to false after data is fetched
@@ -21,7 +21,9 @@ export default function VolunteerNeedsNow() {
 
   return (
     <div className="container mx-auto px-4 py-8 relative">
-      <h2 className="text-3xl font-semibold text-center mb-8 text-green-600">Volunteer Needs Now</h2>
+      <h2 className="text-3xl font-semibold text-center mb-8 text-green-600">
+        Volunteer Needs Now
+      </h2>
 
       {/* Show loader when loading is true */}
       {loading ? (
@@ -45,7 +47,9 @@ export default function VolunteerNeedsNow() {
                   />
                 </figure>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2">{volunteerNeed.title}</h3>
+                  <h3 className="text-2xl font-bold mb-2">
+                    {volunteerNeed.title}
+                  </h3>
                   <p className="text-sm mb-1">
                     <strong>Category:</strong> {volunteerNeed.category}
                   </p>
@@ -53,7 +57,8 @@ export default function VolunteerNeedsNow() {
                     <strong>Location:</strong> {volunteerNeed.location}
                   </p>
                   <p className="text-sm mb-1">
-                    <strong>Deadline:</strong> {new Date(volunteerNeed.postDeadline).toLocaleDateString()}
+                    <strong>Deadline:</strong>{" "}
+                    {new Date(volunteerNeed.postDeadline).toLocaleDateString()}
                   </p>
                   <div className="mt-4 flex justify-end">
                     <Link
@@ -67,13 +72,18 @@ export default function VolunteerNeedsNow() {
               </div>
             ))
           ) : (
-            <p className="text-center text-lg mt-8">No volunteer needs available at the moment.</p>
+            <p className="text-center text-lg mt-8">
+              No volunteer needs available at the moment.
+            </p>
           )}
         </div>
       )}
 
       {/* Button at the right bottom */}
-      <Link to="/all-volunteer-need" className="btn absolute -bottom-9 right-44">
+      <Link
+        to="/all-volunteer-need"
+        className="btn absolute -bottom-9 right-44"
+      >
         All Volunteer Needs Post
       </Link>
     </div>
