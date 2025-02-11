@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
-import axios from "axios"; // Ensure axios is imported
+import axios from "axios"; 
 import { authContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 
 export default function NewsLetter() {
-  const { user } = useContext(authContext); // This is optional if you don't use `user`
-  const [email, setEmail] = useState(""); // State to track the input email
+  const { user } = useContext(authContext); 
+  const [email, setEmail] = useState("");
 
   const handleNewsletterSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ export default function NewsLetter() {
 
       if (res.status === 200) {
         toast.success("Thanks for subscribing to our newsletter!");
-        setEmail(""); // Reset the email input field
+        setEmail(""); 
       } else {
         toast.error("Something went wrong. Please try again.");
       }
