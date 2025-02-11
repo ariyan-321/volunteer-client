@@ -28,14 +28,19 @@ export default function ContactUs() {
     setResponseMessage(""); // Reset the response message
 
     try {
-      const response = await axios.post("https://mainsender2.vercel.app/send-mail", {
-        to: formData.email,
-        subject: "Message Received - Volunteer Hub",
-        message: `Name: ${formData.name}\n\n${formData.message}`,
-      });
+      const response = await axios.post(
+        "https://mainsender2.vercel.app/send-mail",
+        {
+          to: formData.email,
+          subject: "Message Received - Volunteer Hub",
+          message: `Name: ${formData.name}\n\n${formData.message}`,
+        }
+      );
 
       // Handle success
-      setResponseMessage("Thank you for reaching out! We'll get back to you shortly.");
+      setResponseMessage(
+        "Thank you for reaching out! We'll get back to you shortly."
+      );
     } catch (error) {
       // Handle error
       setResponseMessage("Failed to send the message. Please try again later.");
@@ -48,9 +53,12 @@ export default function ContactUs() {
     <div className="contact-page min-h-screen bg-gradient-to-b from-green-700 to-green-900 text-white py-16 px-6">
       {/* Header Section */}
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          Contact Us
+        </h1>
         <p className="text-lg md:text-xl text-green-200">
-          We’re here to help! Feel free to contact us with any questions or feedback about Volunteer Hub.
+          We’re here to help! Feel free to contact us with any questions or
+          feedback about Volunteer Hub.
         </p>
       </div>
 
@@ -58,7 +66,10 @@ export default function ContactUs() {
       <div className="form-section max-w-4xl mx-auto bg-green-800 p-8 rounded-lg shadow-2xl">
         <form className="grid grid-cols-1 gap-6" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-green-300">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-green-300"
+            >
               Full Name
             </label>
             <input
@@ -74,7 +85,10 @@ export default function ContactUs() {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-green-300">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-green-300"
+            >
               Email Address
             </label>
             <input
@@ -90,7 +104,10 @@ export default function ContactUs() {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-green-300">
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-green-300"
+            >
               Message
             </label>
             <textarea

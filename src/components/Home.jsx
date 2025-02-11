@@ -38,7 +38,6 @@ export default function Home() {
       <div className="my-12 container mx-auto">
         <NewsLetter></NewsLetter>
       </div>
-
     </div>
   );
 }
