@@ -55,7 +55,7 @@ export default function Banner() {
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center flex-col text-center p-4">
             <h2 className="text-white text-xl md:text-3xl font-bold">
-              Find Volunteer Opportunities
+              Find Volunteer Opportunities!
             </h2>
             <p className="text-white text-sm md:text-lg mt-2">
               Explore ways to give back and make a difference today.
