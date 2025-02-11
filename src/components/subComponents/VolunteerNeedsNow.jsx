@@ -30,7 +30,7 @@ export default function VolunteerNeedsNow() {
         </div>
       ) : (
         // Show data when it's not loading
-        <div className="grid justify-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-self-center">
+        <div className="grid justify-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 justify-self-center">
           {volunteerNeeds.length > 0 ? (
             volunteerNeeds.map((volunteerNeed, index) => (
               <div
